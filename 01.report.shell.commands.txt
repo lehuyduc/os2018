@@ -1,0 +1,70 @@
+>> echo hello world
+hello world
+
+>> passwd
+Changing password for lehuyduc.
+(current) UNIX password: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+
+>> date
+Thu Jan  4 20:06:57 PST 2018
+
+>> hostname
+ubuntu
+
+>> arch
+x86_64
+
+>> uname -a
+Linux ubuntu 4.10.0-28-generic #32~16.04.2-Ubuntu SMP Thu Jul 20 10:19:48 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+
+>> dmesg
+...
+[ 1896.456543] usb 2-2.1: USB disconnect, device number 5
+[ 1896.892771] usb 2-2.1: new full-speed USB device number 6 using uhci_hcd
+[ 1897.133882] usb 2-2.1: New USB device found, idVendor=0e0f, idProduct=0008
+[ 1897.133883] usb 2-2.1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[ 1897.133884] usb 2-2.1: Product: Virtual Bluetooth Adapter
+[ 1897.133885] usb 2-2.1: Manufacturer: VMware
+[ 1897.133886] usb 2-2.1: SerialNumber: 000650268328
+[ 1898.458002] IPv6: ADDRCONF(NETDEV_UP): ens33: link is not ready
+[ 1898.463596] IPv6: ADDRCONF(NETDEV_UP): ens33: link is not ready
+[ 1898.466827] e1000: ens33 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: None
+
+>> uptime
+uptime
+ 20:10:55 up  1:03,  1 user,  load average: 0.28, 0.18, 0.12
+
+>> who am i
+
+>> whoami
+lehuyduc
+
+>> who
+lehuyduc tty7         2017-12-06 05:24 (:0)
+
+>> id
+uid=1000(lehuyduc) gid=1000(lehuyduc) groups=1000(lehuyduc),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare)
+
+>> last
+lehuyduc tty7         :0               Wed Dec  6 05:24    gone - no logout
+reboot   system boot  4.10.0-28-generi Wed Dec  6 05:23   still running
+lehuyduc tty7         :0               Tue Dec  5 20:20 - crash  (09:03)
+reboot   system boot  4.10.0-28-generi Tue Dec  5 20:19   still running
+lehuyduc tty7         :0               Tue Dec  5 07:29 - down   (00:58)
+reboot   system boot  4.10.0-28-generi Tue Dec  5 07:15 - 08:28  (01:13)
+
+wtmp begins Tue Dec  5 07:15:14 2017
+
+>> finger
+Login     Name       Tty      Idle  Login Time   Office     Office Phone
+lehuyduc  lehuyduc   tty7      29d  Dec  6 05:24 (:0)
+
+>> w
+ 20:15:19 up  1:07,  1 user,  load average: 0.51, 0.23, 0.14
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+lehuyduc tty7     :0               06Dec17 29days 27.81s  0.21s /sbin/upstart -
+
+
