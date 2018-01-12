@@ -1,0 +1,39 @@
+$ ps -ef
+...
+root      27640      2  0 07:25 ?        00:00:00 [hci0]
+root      27642      2  0 07:25 ?        00:00:00 [kworker/u257:2]
+root      27664    860  0 07:25 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/
+root      28592      2  0 07:35 ?        00:00:00 [kworker/u256:1]
+root      28596      1  0 07:36 ?        00:00:00 /usr/sbin/cups-browsed
+root      28784      2  0 07:42 ?        00:00:00 [kworker/0:2]
+root      28823      2  0 07:46 ?        00:00:00 [kworker/u256:0]
+lehuyduc  28830  26390  0 07:46 pts/18   00:00:00 nano 03.report.process.shell.t
+lehuyduc  28832   1590  5 07:46 ?        00:00:06 /usr/lib/firefox/firefox
+lehuyduc  28944   2205  0 07:48 pts/6    00:00:00 ps -ef
+
+$ (gnome-calculator &)
+
+$ ps | grep gnome | awk '{print $1}'
+29207
+
+$ cat /pros/29207/status
+...
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000003fffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Cpus_allowed:	ffffffff,ffffffff,ffffffff,ffffffff
+Cpus_allowed_list:	0-127
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	618
+nonvoluntary_ctxt_switches:	451
+
+$ kill -19 29207 #no output, calculator fade
+
+$ kill -18 29207 #calculator gets brighter
+
+$ kill 29207
