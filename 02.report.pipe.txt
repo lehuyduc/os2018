@@ -1,0 +1,15 @@
+$ ls | grep list
+
+$ ls /etc/passwd | wc -l
+1
+
+$ free | grep Mem | awk '{print $2}'
+994868
+
+$ sudo cat /proc/cpuinfo | grep cores
+cpu cores       : 1
+
+$ find Downloads | grep .jpg | wc -l
+2
+
+
