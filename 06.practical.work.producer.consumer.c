@@ -12,34 +12,37 @@ typedef struct {
 } item;
 
 item buffer[BUFFER_SIZE];
-int first = -1, last = 0;
-int firstTime = 1;
+int first = -1, last = 0, qsize = 0;
 
-void produce(item *i) {
-	if ((first+1)%BUFFER_SIZE==last && firstTime==0) return;
-	first = (first+1) % BUFFER_SIZE;
-	memcpy(&buffer[first],i,sizeof(item));
-}
-
-item* consume() {
-	if (last==(first+1)%BUFFER_SIZE) return NULL;
-	item* i = malloc(sizeof(item));
-	memcpy(i,&buffer[last],sizeof(item));
-	last = (last+1) % BUFFER_SIZE;
-	return i;
-}	
-
-void print(item i) {
-	printf("%d %d %d\n",i.type,i.amount,i.unit);
+void print(item* i) {
+	if (i==NULL) return;
+        printf("%d %d %d\n",i->type,i->amount,i->unit);
 }
 
 item newItem(char a,int b,char c) {
-	item i;
-	i.type = a;
-	i.amount = b;
-	i.unit = c;
-	return i;
+        item i;
+        i.type = a;
+        i.amount = b;
+        i.unit = c;
+        return i;
 }
+
+
+void produce(item *i) {
+	if (qsize==BUFFER_SIZE) return;
+	first = (first+1) % BUFFER_SIZE;
+	memcpy(&buffer[first],i,sizeof(item));
+	qsize++;
+}
+
+item* consume() {
+	if (qsize==0) return NULL;
+	item* i = malloc(sizeof(item));
+	memcpy(i,&buffer[last],sizeof(item));
+	last = (last+1) % BUFFER_SIZE;
+	qsize--;
+	return i;
+}	
 
 int main()
 {
@@ -50,7 +53,7 @@ int main()
 	item *chickenPointer = &chicken, *friesPointer = &fries;
 	produce(chickenPointer);
 	produce(friesPointer);
-	item* serving = consume();
-	if (serving!=NULL) print(*serving);//(*serving).print();
+
+	print((consume()));
 	return 0;
 }
