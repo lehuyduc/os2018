@@ -1,7 +1,6 @@
-$ cat /proc/sched_debug | grep "systemd "
-  systemd     1      1797.140142     10249   120         0.000000      3339.373156         0.000000 0 0 /autogroup-2
-         systemd  1570        64.765329       213   120         0.000000        66.073074         0.000000 0 0 /autogroup-93
-
+$ cat /proc/sched_debug | grep "systemd " | awk '{print $2}'
+1
+1570
 
 $ cat /proc/1/sched | grep switches
 nr_switches                                  :                10129
