@@ -11,6 +11,10 @@ typedef struct {
 	int unit; // 0 = piece, 1 = gram
 } item;
 
+// 'first' is the index of the last element that was produced
+// 'last' is the index of the next element that will be consumed
+// 'qsize' is the number of elements currently in queue. 
+// if qsize = 0, we can't consume. if qsize = BUFFER_SIZE, we can't produce.
 item buffer[BUFFER_SIZE];
 int first = -1, last = 0, qsize = 0;
 
@@ -33,6 +37,7 @@ void produce(item *i) {
 	first = (first+1) % BUFFER_SIZE;
 	memcpy(&buffer[first],i,sizeof(item));
 	qsize++;
+	printf("Produce. first = %d, last = %d\n",first,last);
 }
 
 item* consume() {
@@ -41,6 +46,7 @@ item* consume() {
 	memcpy(i,&buffer[last],sizeof(item));
 	last = (last+1) % BUFFER_SIZE;
 	qsize--;
+	printf("Consume. first = %d, last = %d\n",first,last);
 	return i;
 }	
 
