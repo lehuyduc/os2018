@@ -1,10 +1,7 @@
-$ cat /proc/sched_debug | grep systemd
- systemd     1      1749.957627     10108   120         0.000000      3292.578434         0.000000 0 0 /autogroup-2
- systemd-journal   334       911.476512      3355   120         0.000000       912.925619         0.000000 0 0 /autogroup-8
-   systemd-udevd   347      1666.423777      2629   120         0.000000      1127.989129         0.000000 0 0 /autogroup-10
- systemd-timesyn   495       223.788395       924   120         0.000000       223.707422         0.000000 0 0 /autogroup-27
-  systemd-logind   825       159.990064      1357   120         0.000000       161.296049         0.000000 0 0 /autogroup-38
+$ cat /proc/sched_debug | grep "systemd "
+  systemd     1      1797.140142     10249   120         0.000000      3339.373156         0.000000 0 0 /autogroup-2
          systemd  1570        64.765329       213   120         0.000000        66.073074         0.000000 0 0 /autogroup-93
+
 
 $ cat /proc/1/sched | grep switches
 nr_switches                                  :                10129
