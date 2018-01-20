@@ -1,0 +1,21 @@
+lehuyduc@ubuntu:~$ ps -aux | grep lehuyduc | grep firefox | awk '{print $2}'
+3425
+3475
+3658
+3780
+
+lehuyduc@ubuntu:~$ ps -o nlwp 3425
+NLWP
+  50
+
+lehuyduc@ubuntu:~$ ps -o nlwp 3475
+NLWP
+  23
+
+lehuyduc@ubuntu:~$ ps -o nlwp 3658
+NLWP
+  23
+
+lehuyduc@ubuntu:~$ ps -o nlwp 3780
+NLWP
+
