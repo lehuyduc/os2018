@@ -61,7 +61,6 @@ void *produceThread(void* param)
 	
 	produce(chickenPointer);
 	produce(friesPointer);
-	exit;
 }
 
 void *consumeThread(void* param)
