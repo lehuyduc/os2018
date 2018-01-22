@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -19,9 +20,10 @@ typedef struct {
 item buffer[BUFFER_SIZE];
 int first = -1, last = 0, qsize = 0;
 
-void print(item* i) {
-	if (i==NULL) return;
+bool print(item* i) {
+	if (i==NULL) return false;
         printf("%d %d %d\n",i->type,i->amount,i->unit);
+	return true;
 }
 
 item newItem(char a,int b,char c) {
@@ -69,16 +71,17 @@ void *produceThread(void* param)
 
 void *consumeThread(void* param)
 {
-	print(consume());
-	print(consume());
+	int n = 0;
+	while (n<2) 
+		if (print(consume())) n++;
 }
 
 int main()
 {
 	pthread_t tid1, tid2;
 	pthread_create(&tid1, NULL, produceThread, NULL);
-	pthread_join(tid1,NULL);
 	pthread_create(&tid2, NULL, consumeThread, NULL);
+	pthread_join(tid1,NULL);
 	pthread_join(tid2,NULL);
 	
 	return 0;
