@@ -53,14 +53,18 @@ item* consume() {
 
 void *produceThread(void* param) 
 {
-	item chicken, fries;
+	item chicken, fries, lessChicken;
         chicken = newItem(0,10,0);
         fries = newItem(1,100,1);
-
-        item *chickenPointer = &chicken, *friesPointer = &fries;
-	
+	lessChicken = newItem(0,5,0);
+		
+        item *chickenPointer = &chicken, 
+	     *friesPointer = &fries,
+	     *lessChickenPointer = &lessChicken;
+				
 	produce(chickenPointer);
 	produce(friesPointer);
+	produce(lessChickenPointer);
 }
 
 void *consumeThread(void* param)
