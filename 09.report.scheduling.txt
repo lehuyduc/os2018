@@ -1,0 +1,54 @@
+---------------------------------------------------------------------------
+                  Process        Arrival Time (ms)         Burst Time (ms)
+                        P1                        0                        8
+                        P2                      0.4                        4
+                        P3                        1                        1
+                        P4                      1.3                        5
+
+Q1:
+- "_" is starting time
+- "[" and "]" are ranges where the process is being executed
+a) FCFS:
+
+        Time:   0.0     2.0     4.0     6.0     8.0     10.0    12.0    14.0    16.0    18.0    EndAt
+Task:
+P1              _[                               ]                                              (8ms)
+P2                _                              [                ]                             (12ms)
+P3                  _                                             [  ]                          (13ms)
+P4                     _                                              [                    ]    (18ms)
+
+b) SJF:
+        Time:   0.0     2.0     4.0     6.0     8.0     10.0    12.0    14.0    16.0    18.0
+Task:
+P1              _[                               ]                                              (8ms)
+P2                _                                   [               ]                         (13ms)
+P3                 _                              [   ]                                         (9ms)
+P4                     _                                              [                    ]    (18ms)
+
+c) SRTF:
+        Time:   0.0     2.0     4.0     6.0     8.0     10.0    12.0    14.0    16.0    18.0
+Task:
+P1              _[]                                         [                              ]    (18ms)
+P2                _[ ]    [           ]                                                         (5.4ms)
+P3                   _[   ]                                                                     (2ms)
+P4                     _              [                     ]                                   (10.4ms)
+
+d) RR:
+        Time:   0.0     2.0     4.0     6.0     8.0     10.0    12.0    14.0    16.0    18.0
+Task:
+P1
+P2
+P3
+P4
+
+Q2.
+- FCFS: 7.58
+- SJF: 6.83
+- SRTF: 3.78
+- RR:
+
+Q3:
+- FCFS: 12.08
+- SJF: 11.33
+- SRTF: 8.28
+- RR:
