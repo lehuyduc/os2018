@@ -6,7 +6,7 @@
                         P4                      1.3                        5
 
 Q1:
-- "_" is starting time
+- "_" is arrival time (<- new push fix this sentence)
 - "[" and "]" are ranges where the process is being executed
 a) FCFS:
 
